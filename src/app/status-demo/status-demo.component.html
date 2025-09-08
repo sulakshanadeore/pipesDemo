@@ -1,0 +1,25 @@
+<form [formGroup]="demoForm">
+    <label>USername:</label>
+    <input type="text" formControlName="username">
+<h3>
+    Validation Messages
+</h3>
+<div *ngIf="username?.touched && username?.invalid">
+    <p *ngIf="username?.errors?.['required']">Username</p>
+    <p *ngIf="username?.errors?.['minlength']">Username</p>
+
+</div>
+
+</form>
+<hr/>
+<b>Status messages for Username</b>
+<ol>
+    <li>Is Valid: {{ username?.valid}}</li>
+    <li>Is Invalid: {{ username?.invalid}}</li>
+    <li>Is Pristine: {{ username?.pristine}}</li>
+    <li>Is touched: {{ username?.touched}}</li>
+    <li>Is Dirty: {{ username?.dirty}}</li>
+     <li>Is Untouched: {{username?.untouched}}</li>
+
+</ol>
+
