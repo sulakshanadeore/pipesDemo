@@ -1,0 +1,29 @@
+<div *ngFor="let item of {id:191,name:'Raj',deptno:'10'} | keyvalue">
+    {{item.key}} =:= {{item.value}}
+</div>
+
+
+<h2>Employee Details</h2>
+<p><b>EmployeeID:</b>{{employee.id}}</p>
+<p><b>Employee Name:</b>{{employee.name}}</p>
+
+<p><b>Employee Name:</b>{{employee.name | uppercase}}</p>
+<p><b>Employee Name:</b>{{employee.name | lowercase}}</p>
+<p><b>Employee Salary:</b>{{employee.salary | currency:'INR'}}</p>
+<p><b>Employee Salary:</b>{{employee.salary | currency:'USD'}}</p>
+<p><b>Employee Salary with symbol:</b>{{employee.salary | currency:'USD':'symbol':'1.2-3'}}</p>
+<p><b>Employee Salary with code:</b>{{employee.salary | currency:'USD':'code'}}</p>
+<p><b>Employee Joining Date:</b>{{employee.joiningDate | date:'fullDate'}}</p>
+<p><b>Employee Joining Date:</b>{{employee.joiningDate | date:'shortDate'}}</p>
+<h2>Original Message:  {{msg}}</h2>
+<h2>Transformed  Message:  {{msg | titlecase}}</h2>
+<h2>Slicing:  {{msg | slice:6:18}}</h2>
+<h2>Json of string:  {{msg | json}}</h2>
+<h2>Json of object:  {{employee | json}}</h2>
+<p>Number: {{31133.14159 | number}}</p>
+<p>Number: {{311.14159 | number:'1.1-2'}}</p>
+<p>Number: {{31.14 | number:'1.1-4'}}</p>
+<p>When working with numbers its specified as minimumIntegerDigits.minFractionDigits-MaxFractionDigits</p>
+<p>Percent: {{31.14 | percent}}</p>
+<p>Percent: {{0.75 | percent}}</p>
+<p>Percent: {{0.756 | percent:'1.1-2'}}</p>
