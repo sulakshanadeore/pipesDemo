@@ -1,12 +1,25 @@
-<form [formGroup]="demoForm">
+<form [formGroup]="demoForm" (ngSubmit)="OnSubmit()">
     <label>USername:</label>
     <input type="text" formControlName="username">
+    <br/>
+    <label>Password:</label>
+    <input type="password" formControlName="password">
+    <br/>
+    <button type="submit" [disabled]="password.invalid">Login</button>
 <h3>
     Validation Messages
 </h3>
 <div *ngIf="username?.touched && username?.invalid">
-    <p *ngIf="username?.errors?.['required']">Username</p>
-    <p *ngIf="username?.errors?.['minlength']">Username</p>
+    <p *ngIf="username?.errors?.['required']">Username requried</p>
+    <p *ngIf="username?.errors?.['minlength']">Username min length is 3 chars</p>
+
+</div>
+
+<div *ngIf="password?.touched && password?.invalid">
+    <p *ngIf="password?.errors?.['required']">Passwotd required </p>
+    
+    <p *ngIf="password?.errors?.['minlength']">Password min length 8 chars</p>
+    <p *ngIf="password?.errors?.['pattern']">Atleast one uppercase, one lowercase,1 special char and 1 number</p>
 
 </div>
 
@@ -22,4 +35,16 @@
      <li>Is Untouched: {{username?.untouched}}</li>
 
 </ol>
+
+<h2>PAssword validations</h2>
+<ol>
+    <li>Is Valid: {{ password?.valid}}</li>
+    <li>Is Invalid: {{ password?.invalid}}</li>
+    <li>Is Pristine: {{ password?.pristine}}</li>
+    <li>Is touched: {{ password?.touched}}</li>
+    <li>Is Dirty: {{ password?.dirty}}</li>
+     <li>Is Untouched: {{password?.untouched}}</li>
+
+</ol>
+
 
