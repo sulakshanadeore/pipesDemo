@@ -1,0 +1,23 @@
+1) create employee component
+2) employee={
+id:101,
+name:'Amitabh Bacchan',
+salary:5555422.983,
+deparment:'IT',
+joiningDate:new Date(2023,09,01)
+};
+3)employee.component.html
+Employee id:{{employee.id}},
+Employee name:
+salary:5555422.983,
+deparment:'IT',
+joiningDate:new Date(2023,09,01)
+---------------------------------------
+How to create custom pipe
+1) generate custome pipe
+ng g p titlecase
+
+2) Register app.module.ts in the NgModule and also should have a 
+import
+
+3) use it in the component
