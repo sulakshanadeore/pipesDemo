@@ -9,11 +9,21 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class StatusDemoComponent {
 demoForm=new FormGroup({
     username:new FormControl('',[Validators.required,Validators.minLength(3)]),
+
     password:new FormControl('',[Validators.required,Validators.minLength(8),
-    Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/)
+    Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/)]),
+
+    confirmpassword:new FormControl('',[Validators.required,Validators.minLength(8),
+    Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/)])
       
-    ])
+    
   });
+
+
+  get confirmpassword()
+  {
+    return this.demoForm.get('confirmpassword');
+  }
 
   get password()
   {
@@ -25,12 +35,15 @@ demoForm=new FormGroup({
   {
     if(this.password.valid)
     {
-      alert("Valid");
+      if(this.password.value==this.confirmpassword.value)
+      alert("Valid and password match");
+     else
+    
+      alert("Invalid, password don't macth");
+    
     }
-    else
-    {
-      alert("Invalid");
-    }
+
+   
   }
 
   get username()
